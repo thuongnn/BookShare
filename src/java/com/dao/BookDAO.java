@@ -7,7 +7,9 @@ package com.dao;
 
 import com.connect.ConnectionDB;
 import com.entity.Book;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -27,6 +29,21 @@ public class BookDAO {
         db.initialize();
     }
     
+    public boolean createBook(Book xBook) {
+        boolean result=false;
+        if(isBookExisted(xBook.getiSBN())) {
+        } else {
+            Vector x=new Vector();
+            x.add(xBook);
+            result=db.insertData("Book", x);
+        }
+        return result;
+    }
+    
+    public void updateBook(Book xBook) {
+        Vector vec = new Vector(); vec.add(xBook);
+        db.updateData("Book", vec);
+    }
     //Statement must start wiht "Select * from book"
     private Vector<Book> getBooksByStatement(String statement) {
         //Main function is in the try block
