@@ -162,4 +162,38 @@ public class UserDAO {
         }
         return users;
     }
+    
+        public User searchUserByID(int idUser) {
+        String sqlCommand = "SELECT * FROM [User] WHERE id = " + idUser;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        User user = null;
+        try {
+            conn = db.getConnection();
+            ps = conn.prepareStatement(sqlCommand);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                user.setId(rs.getInt(1));
+                user.setFullName(rs.getString(2));
+                user.setBirthday(rs.getDate(3));
+                user.setAvatar(rs.getString(4));
+                user.setUserName(rs.getString(5));
+                user.setEmail(rs.getString(7));
+                user.setAddress(rs.getString(8));
+                user.setPhoneNumber(rs.getString(9));
+                user.setLinkFacebook(rs.getString(10));
+                user.setUserPoint(rs.getInt(11));
+                user.setCreateDate(rs.getDate(12));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally {
+            close.closeConnection(conn);
+            close.closePreparedStatement(ps);
+            close.closeResultSet(rs);
+        }
+        return user;
+    }
 }
