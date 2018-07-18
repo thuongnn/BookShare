@@ -41,24 +41,32 @@
                             </div>
                             <div class="elements">
                                 <div class="title"><i class="fas fa-file-signature"></i>Title</div>
-                                <div class="input"><input type="text" name="title-book" placeholder="Title Book" required=""></div>
+                                <div class="input">
+                                    <input id="title" type="text" name="title-book" placeholder="Title Book" required="">
+                                </div>
                             </div>
                             <div class="elements">
                                 <div class="title"><i class="fas fa-user-tie"></i>Author</div>
-                                <div class="input"><input type="text" name="author" placeholder="Author Book" required=""></div>
+                                <div class="input">
+                                    <input id="author" type="text" name="author" placeholder="Author Book" required="">
+                                </div>
                             </div>
                             <div class="elements">
                                 <div class="title"><i class="fas fa-tags"></i>Tag</div>
-                                <div class="input"><input type="text" name="tag" placeholder="Tag Book" required=""></div>
+                                <div class="input">
+                                    <input id="tag" type="text" name="tag" placeholder="Tag Book" required="">
+                                </div>
                             </div>
                             <div class="elements">
                                 <div class="title"><i class="fas fa-language"></i>Language</div>
-                                <div class="input"><input type="text" name="language" placeholder="Language Book" required=""></div>
+                                <div class="input">
+                                    <input id="language" type="text" name="language" placeholder="Language Book" required="">
+                                </div>
                             </div>
                             <div class="elements">
                                 <div class="title"><i class="fas fa-pen"></i>Description</div>
                                 <div class="input">
-                                    <textarea rows="6" cols="50" name="description" placeholder="Description Book" required="" style="border: none;"></textarea>
+                                    <textarea id="description" rows="6" cols="50" name="description" placeholder="Description Book" required="" style="border: none;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -101,20 +109,20 @@
         <script src="js/checkFileUpload.js"></script>
         <script src="js/check_book_exist.js"></script>
         <script>
-                                    window.onscroll = function () {
-                                        myFunction();
-                                    };
+            window.onscroll = function () {
+                myFunction();
+            };
 
-                                    var header = document.getElementById("myheader");
-                                    var sticky = header.offsetTop;
+            var header = document.getElementById("myheader");
+            var sticky = header.offsetTop;
 
-                                    function myFunction() {
-                                        if (window.pageYOffset > sticky) {
-                                            header.classList.add("sticky");
-                                        } else {
-                                            header.classList.remove("sticky");
-                                        }
-                                    }
+            function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            }
         </script>
     </body>
 </html>
