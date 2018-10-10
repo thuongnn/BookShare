@@ -43,7 +43,7 @@ public class UserDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 String correctPass = rs.getString(6);
-                if (correctPass.equals(password)) { // Kiểm tra password
+                if (correctPass.equals(password)) { //check password if correct allow login
                     user.setId(rs.getInt(1));
                     user.setFullName(rs.getString(2));
                     user.setBirthday(rs.getDate(3));
@@ -95,10 +95,10 @@ public class UserDAO {
             close.closePreparedStatement(ps);
             close.closeResultSet(rs);
         }
-        return null; // Thỏa mản đk không trùng tài khoản & email
+        return null; // Check duplicate account & email
     }
 
-    // Tạo tài khoản trên hệ thống
+    // Create account
     public boolean createUser(User user) {
         String sqlCommand = "INSERT INTO [User](fullName, birthday, username, password, email, createDate) values(?, ?, ?, ?, ?, ?)";
         Connection conn = null;
